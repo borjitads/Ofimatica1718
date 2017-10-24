@@ -6,10 +6,42 @@ Module Module1
         Dim continuar As Char
         Do
 
-            Console.WriteLine("Escoja un ejercicio del 5 al 9")
+            Console.WriteLine("Escoja un ejercicio del 4 al 15")
             ejercicio = Convert.ToInt32(Console.ReadLine())
 
             Select Case ejercicio
+                Case 4
+                    Dim a, b, c, d, menor As Integer
+                    a = 9
+                    b = 5
+                    c = 2
+                    d = 10
+
+                    If a < b Then
+                        If a < c Then
+                            If a < d Then
+                                menor = a
+                            Else
+                                menor = d
+                            End If
+                        ElseIf c < d Then
+                            menor = c
+                        Else
+                            menor = d
+                        End If
+                    ElseIf b < c Then
+                        If b < d Then
+                            menor = b
+                        Else
+                            menor = d
+                        End If
+                    ElseIf c < d Then
+                        menor = c
+                    Else
+                        menor = d
+                    End If
+                    Console.WriteLine("El menor es: " & menor)
+                    Console.ReadLine()
                 Case 5
                     Console.WriteLine("Ha escogido el ej 5: ")
                     Dim nota As Double
@@ -60,7 +92,7 @@ Module Module1
 
                 Case 7
                     Console.WriteLine("Ha escogido el ej 7: ")
-                    Dim temperatura As Integer = 15
+                    Dim temperatura As Integer = 10
 
                     If temperatura < 0 Then
                         Console.WriteLine("Hielo")
