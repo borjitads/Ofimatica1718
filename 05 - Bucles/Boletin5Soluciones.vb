@@ -4,7 +4,7 @@ Module Module1
     Sub Main()
 
         Dim ejercicio As Integer
-        ejercicio = 11
+        ejercicio = 23
         Select Case ejercicio
             Case 5
                 Dim i As Integer
@@ -194,8 +194,63 @@ Module Module1
                 End If
                 Console.ReadLine()
 
+            Case 21
+                Dim i, j, n As Integer
+                n = 9
+                For j = 1 To 10 Step 1
+                    Console.WriteLine("Tabla de multiplicar del : " & j)
+                    For i = 1 To 10 Step 1
+                        Console.WriteLine(j & " * " & i & " = " & j * i)
+                    Next
+                    Console.WriteLine()
+                Next
+                Console.ReadLine()
+            Case 22
+                Dim i, j, n As Integer
 
+                For i = 7 To 1 Step -1
+                    For j = 1 To i Step 1
+                        Console.Write("* ")
+                    Next
+                    Console.WriteLine()
+                Next
 
+                'i = 1
+                'While i <= 7
+                '    For j = 7 To i Step -1
+                '        Console.Write("* ")
+                '    Next
+                '    Console.WriteLine()
+                '    i += 1
+                'End While
+
+                n = 7
+                For i = 1 To 7 Step 1
+                    For j = 1 To n Step 1
+                        Console.Write("* ")
+                    Next
+                    n -= 1
+                    Console.WriteLine()
+                Next
+                Console.ReadLine()
+            Case 23
+                Dim numero As Long = 100
+                Dim i, j, suma As Long
+
+                For j = 1 To numero Step 1
+                    suma = 0
+                    For i = 1 To j - 1 Step 1
+                        If j Mod i = 0 Then
+                            suma = suma + i
+                        End If
+                    Next
+                    If suma = j Then
+                        Console.WriteLine(j & " es perfecto")
+                    Else
+                        Console.WriteLine("Calculando...")
+
+                    End If
+                Next
 
         End Select
         Console.ReadLine()
