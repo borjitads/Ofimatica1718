@@ -4,7 +4,7 @@ Module Module1
     Sub Main()
 
         Dim ejercicio As Integer
-        ejercicio = 23
+        ejercicio = 24
         Select Case ejercicio
             Case 5
                 Dim i As Integer
@@ -251,6 +251,43 @@ Module Module1
 
                     End If
                 Next
+            Case 24
+                Dim numero As Integer = 2000000
+                Dim i, j As Integer
+                Dim cuentaPrimos, cuentaDivisores As Integer
+                Dim primo As Boolean = True
+                'Número primo si tiene 2 divisores : el 1 y si mismo
+
+                For j = 3 To numero Step 1
+                    primo = True
+                    For i = 2 To j - 1 Step 1
+                        If j Mod i = 0 Then
+                            'cuentaDivisores += 1
+                            primo = False
+                            Exit For
+                        End If
+                    Next
+
+                    If primo Then
+                        Console.WriteLine(j & " es primo.")
+                    End If
+                Next
+
+                Console.ReadLine()
+            Case 25
+                'Generación números aleatorios
+                Dim rand As Random = New Random()
+                For j As Integer = 0 To 100 Step 1
+                    For i As Integer = 0 To 10 Step 1
+                        Dim n As Integer = rand.Next(1, 10)
+                        Console.Write(n & " ")
+                    Next
+                    Console.WriteLine()
+                Next
+
+
+
+
 
         End Select
         Console.ReadLine()
