@@ -4,7 +4,7 @@ Module Module1
     Sub Main()
 
         Dim ejercicio As Integer
-        ejercicio = 24
+        ejercicio = 22
         Select Case ejercicio
             Case 5
                 Dim i As Integer
@@ -68,7 +68,7 @@ Module Module1
                 Console.WriteLine("Suma: " & suma)
 
                 For i = 1 To nn Step 1
-                    suma = suma + i
+
                 Next
 
                 Console.ReadLine()
@@ -232,6 +232,38 @@ Module Module1
                     n -= 1
                     Console.WriteLine()
                 Next
+
+                Console.WriteLine("Apartado C:")
+                Console.WriteLine()
+
+
+                For ii As Integer = 1 To 5 Step 1
+                    For jj = 1 To ii Step 1
+                        Console.Write("*")
+                    Next
+                    Console.WriteLine()
+                Next
+
+                For ii = 4 To 1 Step -1
+                    For jj = 1 To ii Step 1
+                        Console.Write("*")
+                    Next
+                    Console.WriteLine()
+                Next
+
+                Console.WriteLine()
+                Console.WriteLine("Apartado D")
+
+                For ii = 7 To 1 Step -1
+                    For jj = 1 To ii Step 1
+                        Console.Write(jj & " ")
+                    Next
+                    Console.WriteLine()
+                Next
+
+
+
+
                 Console.ReadLine()
             Case 23
                 Dim numero As Long = 100
@@ -286,11 +318,18 @@ Module Module1
                 Next
 
 
-
-
-
         End Select
+
+        Dim h, m As Integer
+        h = 10
+        m = 20
+        While h < m
+            h += 1
+            m = m - 2
+        End While
+        Console.WriteLine(h)
         Console.ReadLine()
+
 
     End Sub
 
