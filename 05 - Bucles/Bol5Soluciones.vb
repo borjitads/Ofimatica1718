@@ -4,7 +4,7 @@ Module Module1
     Sub Main()
 
         Dim ejercicio As Integer
-        ejercicio = 22
+        ejercicio = 21
         Select Case ejercicio
             Case 5
                 Dim i As Integer
@@ -195,8 +195,8 @@ Module Module1
                 Console.ReadLine()
 
             Case 21
-                Dim i, j, n As Integer
-                n = 9
+                Dim i, j As Integer
+
                 For j = 1 To 10 Step 1
                     Console.WriteLine("Tabla de multiplicar del : " & j)
                     For i = 1 To 10 Step 1
