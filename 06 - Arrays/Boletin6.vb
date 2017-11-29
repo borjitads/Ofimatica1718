@@ -3,7 +3,7 @@
 Module Module1
 
     Sub Main()
-        Dim ejercicio As Integer = 12
+        Dim ejercicio As Integer = 11
 
         Select Case ejercicio
             Case 1
@@ -144,26 +144,77 @@ Module Module1
                     Console.WriteLine("No está el número en la matriz")
                 End If
                 Console.ReadLine()
+            Case 11
+                Dim m1() As Integer = {5, 9, 8, 1, 2, 3}
+                Dim m2(m1.Length - 1) As Integer
+
+                Array.Copy(m1, m2, m1.Length)
+
+                Array.Sort(m1)
+
+                Dim valor As Integer = 8
+                Dim posOrdenado As Integer = Array.BinarySearch(m1, valor)
+
+                If posOrdenado < 0 Then
+                    Console.WriteLine(valor & " no está en la matriz")
+                Else
+                    Console.WriteLine(valor & " Posición ordenada: " & posOrdenado)
+                End If
+
+                Dim posOriginal As Integer = -1
+                'Búsqueda matriz no ordenada
+                For i As Integer = 0 To m2.Length - 1 Step 1
+                    If m2(i) = valor Then
+                        posOriginal = i
+                        Exit For
+                    End If
+                Next
+
+                If posOriginal = -1 Then
+                    Console.WriteLine("No está en la matriz ")
+                Else
+                    Console.WriteLine(valor & " está en " & posOriginal)
+                End If
+
+                Console.WriteLine("Matriz ordenada")
+
+                For Each n As Integer In m1
+                    Console.Write(n & " ")
+                Next
+
+                Console.WriteLine()
+
+                Console.WriteLine("Matriz original: ")
+                For Each n As Integer In m2
+                    Console.Write(n & " ")
+                Next
+
+                Console.ReadLine()
+
+
 
             Case 12
                 'Algoritmo de la burbuja, es un método de ordenación de datos
 
-                Dim datos() As Integer = {5, 9, 0, 3, 1, 8, 2}
+                Dim datos() As Integer = {1, 2, 3, 4, 5, 6, 7, 8, 9}
 
                 'Mostrar la matriz
                 For j As Integer = 0 To datos.Length - 1 Step 1
                     Console.Write(datos(j) & " ")
                 Next
                 Console.WriteLine()
+                For k As Integer = 0 To datos.Length - 1 Step 1
+                    For j As Integer = 0 To datos.Length - 2 Step 1
+                        If datos(j) < datos(j + 1) Then
+                            Dim aux As Integer = datos(j)
+                            datos(j) = datos(j + 1)
+                            datos(j + 1) = aux
+                        End If
+                        '    Console.Write(datos(j) & " ")
+                    Next
+                    '
 
-                For j As Integer = 0 To datos.Length - 2 Step 1
-                    If datos(j) < datos(j + 1) Then
-                        Dim aux As Integer = datos(j)
-                        datos(j) = datos(j + 1)
-                        datos(j + 1) = aux
-                    End If
                 Next
-
                 'Mostrar la matriz
                 For j As Integer = 0 To datos.Length - 1 Step 1
                     Console.Write(datos(j) & " ")
@@ -171,6 +222,39 @@ Module Module1
                 Console.ReadLine()
 
 
+
+            Case 13
+                Dim temperaturas() As Integer = {7, 0, 30, 5, 1, 2}
+                Dim maximo As Integer = temperaturas(0)
+                Dim posicionMaximo As Integer
+                For i As Integer = 1 To temperaturas.Length - 1 Step 1
+                    If temperaturas(i) > maximo Then
+                        maximo = temperaturas(i)
+                        posicionMaximo = i
+                    End If
+                Next
+                Console.WriteLine("Maximo valor " & maximo & " en posición " & posicionMaximo)
+                Console.ReadLine()
+            Case 14
+
+                Dim matriz() As Integer = {8, 7, 13, 23, 40}
+                Dim contadorDivisores, contadorPrimos As Integer
+                Dim j As Integer
+                For k As Integer = 0 To matriz.Length - 1 Step 1
+                    contadorDivisores = 0
+                    For j = 2 To matriz(k) - 1 Step 1
+                        If matriz(k) Mod j = 0 Then
+                            contadorDivisores += 1
+                            Exit For
+                        End If
+                    Next
+                    If contadorDivisores = 0 Then
+                        Console.WriteLine(matriz(k) & " es Numero primo")
+                        contadorPrimos += 1
+                    End If
+                Next
+
+                Console.WriteLine("Hay " & contadorPrimos & " numeros primos.")
 
 
 
