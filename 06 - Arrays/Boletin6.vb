@@ -3,7 +3,7 @@
 Module Module1
 
     Sub Main()
-        Dim ejercicio As Integer = 11
+        Dim ejercicio As Integer = 17
 
         Select Case ejercicio
             Case 1
@@ -257,6 +257,109 @@ Module Module1
                 Console.WriteLine("Hay " & contadorPrimos & " numeros primos.")
 
 
+            Case 17
+                Dim nombres(100) As String
+
+                Dim opcion As Integer
+                Do
+                    Console.WriteLine("Escoja opción:")
+                    opcion = Convert.ToInt32(Console.ReadLine())
+
+                    Select Case opcion
+                        Case 1
+                            Console.WriteLine("Introduzca un nombre:")
+                            Dim nombre As String = Console.ReadLine
+                            'Guardarlo en la primera pos vacía 
+
+                            For i As Integer = 0 To nombres.Length - 1 Step 1
+                                If nombres(i) Is Nothing Then
+                                    nombres(i) = nombre
+                                    Exit For
+                                End If
+                            Next
+
+                        Case 2
+                            For Each n As String In nombres
+                                If Not n Is Nothing Then
+                                    Console.WriteLine(n)
+                                Else
+                                    Exit For
+                                End If
+                            Next
+
+                        Case 3
+                            Dim contador As Integer = 0
+
+                            For Each valor As String In nombres
+                                If Not valor Is Nothing Then
+                                    contador += 1
+                                Else
+                                    Exit For
+                                End If
+                            Next
+
+                            Console.WriteLine("Hay : " & contador & " valores.")
+
+                        Case 5
+                            Dim nombreAbuscar As String
+                            Dim encontrado As Boolean = False
+                            Console.WriteLine("Introduzca nombre para buscar")
+                            nombreAbuscar = Console.ReadLine()
+
+                            For i As Integer = 0 To nombres.Length - 1 Step 1
+                                If nombres(i) = nombreAbuscar Then
+                                    Console.WriteLine("Posición: " & i)
+                                    encontrado = True
+                                    Exit For
+
+                                End If
+                            Next
+
+                            If Not encontrado Then
+                                Console.WriteLine("No está")
+                            End If
+
+                        Case 6
+                            Dim nombreAeliminar As String
+                            Console.WriteLine("Introduzca valor que desea eliminar")
+                            nombreAeliminar = Console.ReadLine()
+
+
+                            For i As Integer = 0 To nombres.Length - 1 Step 1
+                                If nombres(i) = nombreAeliminar Then
+
+                                    nombres(i) = Nothing
+
+                                    'Reordenar la matriz
+                                    Dim copias(nombres.Length - 1) As String
+                                    Dim indiceCopias As Integer
+                                    'Volcar pos no vacías
+
+                                    For k As Integer = 0 To nombres.Length - 1 Step 1
+                                        If nombres(k) IsNot Nothing Then
+                                            copias(indiceCopias) = nombres(k)
+                                            indiceCopias += 1
+                                        End If
+                                    Next
+
+                                    nombres = copias
+                                    copias = Nothing
+                                    Exit For
+                                End If
+                            Next
+
+                            'COmprobar eliminación
+                            Console.WriteLine("Después de eliminar")
+
+                            For Each registro As String In nombres
+                                Console.WriteLine(registro)
+                            Next
+
+
+                            Console.ReadLine()
+
+                    End Select
+                Loop While opcion <> 7
 
 
 
